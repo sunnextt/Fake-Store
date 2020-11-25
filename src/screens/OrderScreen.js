@@ -31,7 +31,7 @@ function OrderScreen() {
 
 
   return  loading ? <div>Loading ...</div> : error ? <div>{error}</div> :
-
+    <> 
   <div>
       <div className="placeorder">
         <div className="placeorder-info">
@@ -113,8 +113,7 @@ function OrderScreen() {
       </div>
     </div>
   </div>;
-  
-
+</>
 
 }
 

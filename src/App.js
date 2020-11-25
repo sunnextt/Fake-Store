@@ -10,6 +10,7 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import CartLink from "./components/CartLinks";
 import OrderScreen from "./screens/OrderScreen";
+import SearchBox from "./components/SesrchBox";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <button onClick={openMenu}>&#9776;</button>
             <Link to="/">Fake Store</Link>
           </div>
+          <Route render={({ history }) => <SearchBox history={history} />} />
           <div className="header-links">
             <CartLink />
             <a href="signin.html">Sign In</a>
@@ -57,11 +59,11 @@ function App() {
           <div className="content">
             <Route path="/shipping" component={ShippingScreen} />
             <Route path="/payment" component={PaymentScreen} />
-            <Route path="/order/:id" component={OrderScreen} />
             <Route path="/placeorder" component={PlaceOrderScreen} />
             <Route path="/order/:id" component={OrderScreen} />
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
+            <Route path="/search/:keyword" component={HomeScreen} exact />
             <Route path="/" exact={true} component={HomeScreen} />{" "}
           </div>
         </main>

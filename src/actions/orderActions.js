@@ -15,7 +15,6 @@ const createOrder = (order) => async (dispatch) => {
     dispatch({ type: ORDER_CREATE_REQUEST, payload: order });
     dispatch({ type: ORDER_CREATE_SUCCESS, payload: order });
   }
-
   
   catch (error) {
     dispatch({ type: ORDER_CREATE_FAIL, payload: error.message });

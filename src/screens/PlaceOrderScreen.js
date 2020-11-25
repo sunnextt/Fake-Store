@@ -38,7 +38,6 @@ function PlaceOrderScreen(props){
       taxPrice, totalPrice
     }));
   }
- 
   const paymentmethod = "paymentmethod";
   useEffect(() => {
     if (success) {
