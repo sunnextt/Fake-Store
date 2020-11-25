@@ -39,10 +39,10 @@ function PlaceOrderScreen(props){
     }));
   }
  
-  
+  const paymentmethod = "paymentmethod";
   useEffect(() => {
     if (success) {
-      props.history.push("/order/" + "paymentmethod");
+      props.history.push(`/order/${paymentmethod}`);
     }
   }, [success, props.history]);
 
