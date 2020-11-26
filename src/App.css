@@ -434,44 +434,44 @@ Cart Link
     color: #fff;
 }
 
-.container-4{
+.search_container{
   overflow: hidden;
   width: 300px;
   vertical-align: middle;
   white-space: nowrap;
 }
 
-.container-4 input#search{
+.search_container input#search{
   width: 250px;
   height: 40px;
   background: #ecedf0;
   border: none;
-  font-size: 10pt;
+  font-size: 1.3rem;
   float: left;
-  color: #fff;
+  color: #000;
   padding-left: 15px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
 
-.container-4 input#search::-webkit-input-placeholder {
+.search_container input#search::-webkit-input-placeholder {
    color: #65737e;
 }
  
-.container-4 input#search:-moz-placeholder { /* Firefox 18- */
+.search_container input#search:-moz-placeholder { /* Firefox 18- */
    color: #65737e;  
 }
  
-.container-4 input#search::-moz-placeholder {  /* Firefox 19+ */
+.search_container input#search::-moz-placeholder {  /* Firefox 19+ */
    color: #65737e;  
 }
  
-.container-4 input#search:-ms-input-placeholder {  
+.search_container input#search:-ms-input-placeholder {  
    color: #65737e;  
 }
 
-.container-4 button.icon{
+.search_container button.icon{
   -webkit-border-top-right-radius: 5px;
   -webkit-border-bottom-right-radius: 5px;
   -moz-border-radius-topright: 5px;
@@ -494,12 +494,12 @@ Cart Link
   transition: all .55s ease;
 }
 
-.container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
+.search_container:hover button.icon, .search_container:active button.icon, .search_container:focus button.icon{
   outline: none;
   opacity: 1;
   margin-left: -50px;
 }
  
-.container-4:hover button.icon:hover{
+.search_container:hover button.icon:hover{
   background: white;
 }

@@ -15,7 +15,7 @@ const SearchBox = ({ history }) => {
   return (
     <form onSubmit={submitHandler} inline>
       <div className="box">
-        <div className="container-4">
+        <div className="search_container">
           <input
             type="search"
             id="search"
