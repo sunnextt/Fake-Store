@@ -29,7 +29,7 @@ const HomeScreen = ({ match }) => {
    if (filter !== "") {
      newProducts = newProducts.filter((item) => {
        let title = item.title.toLowerCase().trim();
-       return title.includes(filter) ? item : null;
+       return title.includes(filter) ? item : products;
      });
    }
    setSearchProducts(newProducts);
@@ -38,15 +38,6 @@ const HomeScreen = ({ match }) => {
 
 console.log(searchProducts);
 
-
-
-
-
-
-
-  
-
- 
 
   return loading ? (
     <div>loading</div>
