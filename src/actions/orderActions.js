@@ -7,6 +7,7 @@ import {
   ORDER_PAY_REQUEST,
   ORDER_PAY_SUCCESS,
   ORDER_PAY_FAIL,
+  ORDER_DETAILS_REQUEST,
 } from "../constants/orderConstants";
 
 
@@ -23,16 +24,21 @@ const createOrder = (order) => async (dispatch) => {
 
 
 
-const detailsOrder = (plswork) => async (dispatch) => {
-  try {
-    dispatch({ type: ORDER_DETAILS_SUCCESS, payload: plswork });
-  } catch (error) {
-    dispatch({ type: ORDER_DETAILS_FAIL, payload: error.message });
-  }
-};
 
 
-const payOrder = (order, paymentResult) => async (dispatch, ) => {
+
+  const detailsOrder = (orderId) => async (dispatch) => {
+    try {
+      dispatch({ type: ORDER_DETAILS_REQUEST, payload: orderId });
+
+      dispatch({ type: ORDER_DETAILS_SUCCESS, payload: orderId });
+    } catch (error) {
+      dispatch({ type: ORDER_DETAILS_FAIL, payload: error.message });
+    }
+  };
+
+
+const payOrder = (paymentResult) => async (dispatch, ) => {
   try {
     dispatch({ type: ORDER_PAY_REQUEST, payload: paymentResult });
 

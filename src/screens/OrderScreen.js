@@ -10,23 +10,29 @@ function OrderScreen() {
   const createOrder = useSelector((state) => state.orderCreate);
 
     const {order} = createOrder || [];
-    const { cartItems } = order ||[];
+    console.log(order);
 
   const orderPay = useSelector(state => state.orderPay);
-  const { loading: loadingPay, } = orderPay;
+  const { loading: loadingPay, success: successPay} = orderPay;
 
   const dispatch = useDispatch();
+
+
   useEffect(() => {
-    dispatch(detailsOrder(cartItems));
-  }, [dispatch, cartItems]);
+    if (successPay) {
+      dispatch(detailsOrder());
+    }
+  }, [dispatch, successPay,]);
 
 
 
   const handleSuccessPayment = (paymentResult) => {
+    console.log(paymentResult);
     dispatch(payOrder(order, paymentResult));
   }
 
   const orderDetails = useSelector((state) => state.orderDetails);
+  console.log(orderDetails);
   const { error, loading } = orderDetails;
 
 

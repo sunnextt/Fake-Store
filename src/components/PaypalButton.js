@@ -18,37 +18,36 @@ const clientId =
     document.body.appendChild(script);
   };
 
-  const createOrder = (actions) =>
-    actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            currency_code: "USD",
-            value: props.amount,
-          },
-        },
-      ],
-    });
+ const createOrder = (data, actions) =>
+   actions.order.create({
+     purchase_units: [
+       {
+         amount: {
+           currency_code: "USD",
+           value: props.amount,
+         },
+       },
+     ],
+   });
 
-  const onApprove = (data, actions) =>
-    actions.order
-      .capture()
-      .then((details) => props.onSuccess(data, details))
-      .catch((err) => console.log(err));
+ const onApprove = (data, actions) =>
+   actions.order
+     .capture()
+     .then((details) => props.onSuccess(data, details))
+     .catch((err) => console.log(err));
 
-  useEffect(() => {
-    if (!window.paypal) {
-      addPaypalSdk();
-    }
-    return () => {
-      //
-    };
-  }, []);
+ useEffect(() => {
+   if (!window.paypal) {
+     addPaypalSdk();
+   }
+   return () => {
+     //
+   };
+ }, []);
 
-  if (!sdkReady) {
-    return <div>Loading...</div>;
-  }
-
+ if (!sdkReady) {
+   return <div>Loading...</div>;
+ }
 
   return (
     <PayPalButton

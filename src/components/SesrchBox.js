@@ -13,7 +13,7 @@ const SearchBox = ({ history }) => {
   };
 
   return (
-    <form onSubmit={submitHandler} inline>
+    <form onSubmit={submitHandler}>
       <div className="box">
         <div className="search_container">
           <input
@@ -23,7 +23,7 @@ const SearchBox = ({ history }) => {
             placeholder="Search..."
           />
           <button type="submit" className="icon">
-            <i class="fa fa-search"></i>
+            <i className="fa fa-search"></i>
           </button>
         </div>
       </div>

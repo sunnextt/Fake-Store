@@ -5,38 +5,45 @@ import { listProducts } from "../actions/productActions";
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
-  const [filter, setFilter] = useState("")
-  const [product, setProduct] = useState('')
-  const [searchProducts, setSearchProducts] = React.useState([]);
+   const [search, setSearch] = useState(null);
+  console.log(search);
+
 
 
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList || {};
   const dispatch = useDispatch();
 
+  
+  const [searchProducts, setSearchProducts] = useState([]);
+
 
 
  useEffect(() => {
-
+   setSearch(keyword);
    dispatch(listProducts());
- }, [dispatch]);
+ }, [dispatch, keyword]);
 
 
  useEffect(() => {
-   setFilter(keyword);
-   setProduct(products);
-   let newProducts = [...product];
-   if (filter !== "") {
-     newProducts = newProducts.filter((item) => {
-       let title = item.title.toLowerCase().trim();
-       return title.includes(filter) ? item : products;
-     });
+   let newProducts = [...products];
+
+   if (loading === false) {
+     if (search === null || search === undefined) {
+       setSearchProducts(newProducts);
+     } else if (search !== null || search !== undefined) {
+       newProducts = newProducts.filter((item) => {
+         let title = item.title.toLowerCase();
+         return title.includes(keyword) ? item : null;
+       });
+     }
+     setSearchProducts(newProducts);
    }
-   setSearchProducts(newProducts);
- }, [filter, product, keyword, products]);
+ }, [keyword, products, loading, search ]);
 
 
 console.log(searchProducts);
+
 
 
   return loading ? (
